@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenue sur Bleach RP</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    #slideshow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    #slideshow img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    #slideshow img.active {
+      opacity: 1;
+    }
+
+    h1 {
+      margin-top: 30vh;
+      font-size: 3em;
+      text-shadow: 2px 2px 10px black;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="slideshow">
+    <img src="img1.jpg" class="active">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+  </div>
+
+  <h1>Bienvenue sur BLEACH RP</h1>
+
+  <audio autoplay loop>
+    <source src="musique.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const slides = document.querySelectorAll("#slideshow img");
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 5000); // change toutes les 5 sec
+  </script>
+
+</body>
+</html>
